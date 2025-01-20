@@ -2,9 +2,9 @@ const hungerBar = document.getElementById("hunger-bar");
 const happinessBar = document.getElementById("happiness-bar");
 const energyBar = document.getElementById("energy-bar");
 
-let hunger = 50;
-let happiness = 50;
-let energy = 50;
+let hunger = 100;
+let happiness = 100;
+let energy = 100;
 
 function updateBars() {
     hungerBar.style.width = `${hunger}%`;
@@ -14,7 +14,23 @@ function updateBars() {
         const value = [hunger, happiness, energy][index];
         bar.style.backgroundColor = value < 30 ? "red" : value < 70 ? "orange" : "#4caf50";
     });
+
+    checkStatus();
 }
+
+function checkStatus() {
+    if (hunger < 30|| happiness < 30|| energy < 30 ) {
+        alert("Let op!! Je moet voor je tamagotchi zorgen!");
+    }
+}
+
+function decreaseStatus() {
+    hunger = Math.max(hunger - 10, 0);
+    happiness = Math.max(happiness - 10, 0);
+    energy = Math.max(energy - 10, 0);
+    updateBars();
+}
+
 function feedTamagotchi() {
     hunger = Math.min(hunger + 10, 100);
     happiness = Math.max(happiness - 5, 0);
@@ -31,4 +47,7 @@ function sleepTamagotchi() {
     updateBars();
 }
 
-document.addEventListener("DOMContentLoaded", updateBars);
+document.addEventListener("DOMContentLoaded", () => {
+    updateBars();
+    setInterval(decreaseStatus, 5 * 60 * 1000);
+});
