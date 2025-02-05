@@ -22,7 +22,6 @@
     <div class="game-screen">
         <div class="tamagotchi">
             <img src="img/tamagotchi.png" alt="tamagotchi" id="tamagotchi-img">
-            <p id="emotie">Hoi!</p>
         </div>
         <div class="status">
             <div class="status-bar">
@@ -51,6 +50,12 @@
         <button onclick="sleepTamagotchi()">Slaap</button>
     </div>
 </div>
+<div id="game-over">
+    <h1>😢 Spel voorbij!</h1>
+    <p>Je hebt Tamagotchi verwaarloosd en hij is gestorven van de honger!</p>
+    <button onclick="restartGame()">🔄 Opnieuw proberen</button>
+</div>
+<div id="notification-container"></div>
 <audio autoplay id="audio" src="game-audio.mp3" loop></audio>
 <script src="script.js"></script>
 

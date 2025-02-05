@@ -88,3 +88,85 @@ h1 {
 .controls button:hover {
     background: #3e8e41;
 }
+
+#game-over {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    z-index: 9999;
+}
+
+#game-over h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+#game-over p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    max-width: 80%;
+}
+
+#game-over button {
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: #ff4c4c;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+#game-over button:hover {
+    background: #d93636;
+    transform: scale(1.05);
+}
+
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 250px;
+    z-index: 1000;
+}
+
+.notification {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.notification.warning {
+    background-color: #ff9800;
+}
+
+.notification.danger {
+    background-color: #f44336;
+}
+
+.notification.success {
+    background-color: #4caf50;
+}
